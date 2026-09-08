@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đề Thi Thực Hành Unity 2D - Space Defender</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #10b981;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .meta-info span {
+            background: rgba(255,255,255,0.05);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.05);
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.4s; }
+
+        h2 {
+            color: #818cf8;
+            border-bottom: 2px solid rgba(99, 102, 241, 0.2);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #e2e8f0;
+            margin-top: 25px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #cbd5e1;
+        }
+
+        .preview-img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
+            display: block;
+            margin: 20px auto;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s;
+        }
+
+        .preview-img:hover {
+            transform: scale(1.02);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #34d399;
+            text-decoration: underline;
+        }
+
+        .points {
+            background: rgba(99, 102, 241, 0.2);
+            color: #818cf8;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ĐỀ THI THỰC HÀNH UNITY 2D</h1>
+        <div class="meta-info">
+            <span>⏱ Thời gian: 120 phút</span>
+            <span>💻 Hình thức: Thực hành</span>
+        </div>
+    </header>
+
+    <div class="card">
+        <h2>Chủ đề: Space Defender (Bảo Vệ Không Gian)</h2>
+        <p>Học viên sẽ tạo ra một mini-game 2D thuộc thể loại Space Shooter (Bắn ruồi/Bắn tàu vũ trụ). Người chơi điều khiển một phi thuyền di chuyển qua lại để bắn hạ các thiên thạch hoặc tàu địch đang rơi từ trên xuống, đồng thời phải tránh va chạm với chúng để sinh tồn.</p>
+        
+        <img src="./preview.jpg" alt="Space Shooter Gameplay Preview" class="preview-img">
+    </div>
+
+    <div class="card">
+        <h2>1. Tài nguyên (Assets) Yêu cầu</h2>
+        <p>Học viên tải bộ tài nguyên miễn phí (CC0) để sử dụng cho bài thi:</p>
+        <ul>
+            <li><strong>Kenney Space Shooter Remastered:</strong> <a href="https://kenney.nl/assets/space-shooter-remastered" target="_blank">Tải tại đây</a></li>
+            <li><em>Ghi chú:</em> Học viên có thể tự do chọn Sprite phi thuyền (Player), kẻ địch (Enemy/Meteor) và đạn (Laser) tùy ý trong gói tài nguyên trên.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>2. Yêu cầu chi tiết (100 Điểm)</h2>
+        
+        <h3>Phần 1: Yêu cầu Cơ bản <span class="points">70 Điểm</span></h3>
+        <ul>
+            <li><strong>Thiết lập Cảnh & Player <span class="points">20 Điểm</span>:</strong> Tạo nền, Player ở dưới đáy màn hình, di chuyển Trái/Phải (giới hạn trong camera).</li>
+            <li><strong>Cơ chế Bắn súng <span class="points">20 Điểm</span>:</strong> Nhấn Space bắn đạn bay lên trên. Tự hủy đạn khi ra ngoài màn hình.</li>
+            <li><strong>Kẻ địch & Spawner <span class="points">20 Điểm</span>:</strong> Tự động sinh Enemy ở trên cùng, rơi xuống dưới. Tự hủy khi ra ngoài màn hình.</li>
+            <li><strong>Va chạm (Collision) <span class="points">10 Điểm</span>:</strong> Đạn trúng Enemy -> Cả hai biến mất. Enemy trúng Player -> Game Over.</li>
+        </ul>
+
+        <h3>Phần 2: Yêu cầu Nâng cao <span class="points">30 Điểm</span></h3>
+        <ul>
+            <li><strong>Giao diện (UI) <span class="points">15 Điểm</span>:</strong> Hiển thị Điểm số (Score). Khi chết hiện bảng Game Over có nút Chơi Lại (Replay).</li>
+            <li><strong>Hiệu ứng & Polish <span class="points">15 Điểm</span>:</strong> Thêm âm thanh bắn/nổ. Thêm Particle System khi Enemy nổ. Thêm Background cuộn dọc (Scrolling).</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>3. Hướng dẫn Nộp bài</h2>
+        <ul>
+            <li>Tạo thư mục tên: <code>[MaHocVien]_[HoVaTen]</code></li>
+            <li>Nén toàn bộ thư mục Project thành file <code>.zip</code>. (Có thể xóa thư mục Library để giảm dung lượng).</li>
+            <li>Nộp lên hệ thống. Nộp chậm quá 5 phút: 0 điểm.</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

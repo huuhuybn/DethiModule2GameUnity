@@ -92,15 +92,34 @@
             color: #cbd5e1;
         }
 
+        .image-grid {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+
+        .image-grid .preview-img {
+            margin: 0;
+            flex: 1;
+        }
+
         .preview-img {
             width: 100%;
-            max-width: 600px;
+            max-width: 400px;
             border-radius: 12px;
             display: block;
             margin: 20px auto;
             box-shadow: 0 8px 20px rgba(0,0,0,0.5);
             border: 2px solid rgba(255,255,255,0.1);
             transition: transform 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .image-grid {
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
         .preview-img:hover {
@@ -154,8 +173,10 @@
         <h2>Chủ đề: Space Defender (Bảo Vệ Không Gian)</h2>
         <p>Học viên sẽ tạo ra một mini-game 2D thuộc thể loại Space Shooter (Bắn ruồi/Bắn tàu vũ trụ). Người chơi điều khiển một phi thuyền di chuyển qua lại để bắn hạ các thiên thạch hoặc tàu địch đang rơi từ trên xuống, đồng thời phải tránh va chạm với chúng để sinh tồn.</p>
         
-        <img src="./Menu.png" alt="Màn hình Menu" class="preview-img">
-        <img src="./Play.png" alt="Màn hình Gameplay" class="preview-img">
+        <div class="image-grid">
+            <img src="./Menu.png" alt="Màn hình Menu" class="preview-img">
+            <img src="./Play.png" alt="Màn hình Gameplay" class="preview-img">
+        </div>
     </div>
 
     <div class="card">
